@@ -1,0 +1,203 @@
+body{
+    background-image: url(map33.jpg);
+}
+.navbar{
+    background-color: white;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+     z-index:99;
+}
+.navbar .container{
+    width: 80%;
+}
+.navbar-toggler:hover{
+    background-color:white;
+}
+
+.navbar-brand a span{
+    margin-top: 0px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Lucida Sans";
+}
+.navbar button{
+    float: right;
+}
+.navbar .btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: inherit;
+    color: black;
+    font-size: 20px;
+}
+.navbar .btn:hover{
+    background-color: black;
+    color: white;
+}
+/*.caption{
+    color: white;
+    padding-top: 5px;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Book Antiqua";
+}*/
+.map{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 20px;
+}
+.full_div{
+    margin-top: 2%;
+    margin-left: 12%;
+    margin-right: 12%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+.main{
+    background-color: rgba(35, 79, 112,1);
+    color: #fbf8be;
+    height: 190px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.19), 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.image_container{
+    margin-left: 5%;
+    padding-top: 25px;
+    float: left;
+    width: 20%;
+    height:100px;
+}
+.image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(251, 248, 190,1);
+}
+.phone{
+    margin-right: 5%;
+    color: rgba(251, 248, 190,1);
+    padding-top: 30px;
+    text-align: center;
+    width: 20%;
+    float: right;
+    line-height: 2;
+    font-weight: bold;
+    font-size: 20px;
+}
+.transport{
+    margin-left: 5%;
+    color: rgba(251, 248, 190,1);
+     padding-top: 30px;
+    font-size: 20px;
+    width: 30%;
+    float: left;
+    line-height: 2;
+    font-weight: bold;
+
+}
+.accept_or_cancle{
+    color: rgba(6, 31, 64,1);
+    margin-right: 13%;
+    margin-left: 14%;
+    height: 200px;
+}
+.change_driver,.start_trip,.payment,.report{
+    float: left;
+    width: 20%;
+    height: 140px;
+
+    align-items: center;
+    text-align: center;
+     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     color: white;
+    padding-top:45px;
+    font-size: 25px;
+}
+.change_driver{
+ background-color: rgba(251, 248, 190,1);
+    color: rgba(35, 79, 112,1);
+     margin-right: 6%;
+    font-weight: bold;
+}.change_driver:hover{
+     cursor: pointer;
+ }
+.start_trip{
+    background-color: rgba(251, 248, 190,1);
+    color: rgba(35, 79, 112,1);
+     margin-right: 6%;
+    font-weight: bold;
+}
+.age{
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(251, 248, 190,1);
+}
+.start_trip:hover{
+    cursor: pointer;
+}
+.payment{
+     font-weight: bold;
+    cursor: none;
+    background-color: rgba(187, 191, 196,1);
+     margin-right: 6%;
+    color: rgba(35, 79, 112,1);
+}
+.report{
+    color: rgba(35, 79, 112,1);
+     font-weight: bold;
+    background-color: rgba(187, 191, 196,1);
+}
+.report:hover{
+    cursor: none;
+}
+
+
+
+
+{box-sizing: border-box;}
+.popup{
+    height: 50px;
+    width: 60%;
+    margin-left: 30%;
+    margin-right: 30%;
+    top: 10%;
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width:1200px ){
+    .navbar{
+        padding-left: 100px;
+    }
+}
+@media (min-width:991px ) and (max-width: 1199px) {
+    .navbar{
+        padding-left: 100px;
+    }
+}
+@media (min-width:768px ) and (max-width: 990px) {
+    .navbar{
+        padding-left: 100px;
+    }
+}
+
+@media (min-width:543px ) and (max-width: 767px) {
+    .navbar{
+        padding-left: 50px;
+    }
+}
+@media (max-width: 542px) {
+    .navbar{
+        padding-left: 50px;
+    }
+}

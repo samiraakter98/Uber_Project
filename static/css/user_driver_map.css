@@ -1,0 +1,180 @@
+body{
+    background-image: url(map2.jpg);
+    background-size: cover;
+}
+.navbar{
+    background-color: white;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+     z-index:99;
+}
+.navbar .container{
+    width: 80%;
+}
+.navbar-toggler:hover{
+    background-color:white;
+}
+
+.navbar-brand a span{
+    margin-top: 0px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Lucida Sans";
+}
+.navbar button{
+    float: right;
+}
+.navbar .btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: inherit;
+    color: black;
+    font-size: 20px;
+}
+.navbar .btn:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.choose{
+    margin-left: 10%;
+    width: 50%;
+    height: 200px;
+    float: left;
+    margin-bottom: 10%;
+
+}
+#map2{
+    height: 500px;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.moto,.uberx,.premium{
+    font-size: 15px;
+    height: 80px;
+
+    background: rgba(33, 75, 122,0.5);
+  padding-left: 50px ;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  display: -ms-flexbox;
+  display: flex;
+    border: solid 1px rgba(255,255,255,0.2);
+}
+.moto:hover{
+     background: rgba(192, 197, 204,1);
+    color: white;
+}
+.moto:active{
+     background: rgba(192, 197, 204,1);
+}
+.uberx:hover{
+    background: rgba(192, 197, 204,1);
+    color: white;
+}
+.premium:hover{
+     background: rgba(192, 197, 204,1);
+    color: white;
+}
+.car_image1,.car_image2,.car_image3{
+    float: left;
+    width: 35%;
+}
+.image1,.image2,.image3{
+    height: 50px;
+}
+.caption1,.caption2,.caption3{
+    font-size: 15px;
+    color: grey;
+}
+span{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: initial;
+    color: black;
+}
+button{
+    font-size:15px;
+    font-weight: bolder;
+  color: black;
+  background: white;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 0.9em;
+    font-family: Arial;
+  width: 50%;
+  margin: 2em 0;
+  letter-spacing: 4px;
+
+}
+.button{
+    text-align: center;
+    margin-top: 5px;
+}
+
+span{
+    color: white;
+}
+.fare{
+    background: rgba(33, 75, 122,0.4);
+    font-size: 20px;
+    font-weight: bold;
+    font-style: initial;
+    color: white;
+    text-align: center;
+    height:100px ;
+    width: 15%;
+    float: right;
+    margin-right: 10%;
+    margin-top: 5%;
+    padding-top: 10px;
+}
+.fare:hover {
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background: rgba(255, 255, 255,0.2);
+}
+@media (min-width:1200px ){
+    .navbar{
+        padding-left: 100px;
+    }
+}
+@media (min-width:991px ) and (max-width: 1199px) {
+    .navbar{
+        padding-left: 100px;
+    }
+}
+@media (min-width:768px ) and (max-width: 990px) {
+    .navbar{
+        padding-left: 100px;
+    }
+}
+
+@media (min-width:543px ) and (max-width: 767px) {
+    .navbar{
+        padding-left: 50px;
+    }
+}
+@media (max-width: 542px) {
+    .navbar{
+        padding-left: 50px;
+    }
+
+}
+.marker {
+  background-image: url(car_icon3.png);
+  background-size: cover;
+  width: 35px;
+  height: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,210 @@
+body{
+    background-color: white;
+}
+.navbar{
+    background-color: white;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+     z-index:99;
+}
+.navbar .container{
+    width: 80%;
+}
+.navbar-toggler:hover{
+    background-color:white;
+}
+
+.navbar-brand a span{
+    margin-top: 0px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Lucida Sans";
+}
+.navbar button{
+    float: right;
+}
+.navbar .btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: inherit;
+    color: black;
+    font-size: 20px;
+}
+.navbar .btn:hover{
+    background-color: black;
+    color: white;
+}
+.login .btn,.signup .btn{
+    margin-top: 8px;
+    background-color: black;
+    border-color: black;
+    margin-left: 15px;
+    color: white;
+    font-size: 15px;
+    font-weight:inherit;
+}
+.caption{
+    margin-top: 40px;
+    color: white;
+    text-align: center;
+}
+.accidents{
+    border-radius: 5px;
+    padding-top: 25px;
+    margin-top: 20px;
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+@media (min-width:1200px ){
+    .navbar{
+        padding-left: 100px;
+    }
+    .caption{
+        font-size: 40px;
+    }
+    .accidents{
+        margin-left: 15%;
+        margin-right: 15%;
+        height: 180px;
+    }
+    .count{
+        width:20%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 20px;
+        text-align: center;
+    }
+    .driver,.time{
+        width:40%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 15px;
+    }
+}
+@media (min-width:991px ) and (max-width: 1199px) {
+    .navbar{
+        padding-left: 100px;
+    }
+    .caption{
+        font-size: 40px;
+    }
+    .accidents{
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 200px;
+    }
+    .count{
+        width:20%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 20px;
+        text-align: center;
+        font-size: 15px;
+    }
+    .driver,.time{
+        width:40%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 25px;
+         font-size: 15px;
+    }
+}
+@media (min-width:768px ) and (max-width: 990px) {
+    .navbar{
+        padding-left: 100px;
+    }
+    .caption{
+        font-size: 40px;
+    }
+    .accidents{
+        margin-left: 6%;
+        margin-right: 6%;
+        height: 180px;
+    }
+    .count{
+        width:20%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 10px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .driver,.time{
+        width:40%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 30px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width:543px ) and (max-width: 767px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .caption{
+        font-size: 30px;
+    }
+    .accidents{
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 190px;
+    }
+    .count{
+        width:20%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .driver,.time{
+        width:40%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 25px;
+        font-size: 14px;
+    }
+
+}
+@media (max-width: 542px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .caption{
+        font-size: 30px;
+    }
+    .accidents{
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 220px;
+    }
+    .count{
+        width:20%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .driver,.time{
+        width:40%;
+        background-color: white;
+        color: black;
+        float: left;
+        padding-left: 25px;
+        font-size: 14px;
+    }
+}

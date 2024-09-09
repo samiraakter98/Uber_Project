@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACCIDENT</title>
+</head>
+<body>
+<h1>ACCIDENTS</h1>
+<table width="100%"  border="1">
+    <tr style="background-color:lightgray">
+        <th>REPORT_ID</th>
+        <th>TRANS_ID</th>
+        <th>DRIVER_ID</th>
+        <th>OCCUR_TIME</th>
+    </tr>
+    {% for ACCIDENT in ACCIDENT %}
+       <tr>
+           <td>{{ACCIDENT.REPORT_ID}}</td>
+           <td>{{ACCIDENT.TRANS_ID }}</td>
+           <td>{{ACCIDENT.DRIVER_ID}}</td>
+           <td>{{ACCIDENT.OCCUR_TIME}}</td>
+       </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

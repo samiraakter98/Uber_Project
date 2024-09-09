@@ -1,0 +1,217 @@
+body{
+    background-color: black;
+}
+.navbar{
+    background-color: #f1f7fc;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+     z-index:99;
+}
+.navbar .container{
+    width: 80%;
+}
+.navbar-toggler:hover{
+    background-color:white;
+}
+
+.navbar-brand a span{
+    margin-top: 0px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Lucida Sans";
+}
+.navbar button{
+    float: right;
+}
+.navbar .btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: inherit;
+    color: black;
+    font-size: 20px;
+}
+.navbar .btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.main{
+    padding-top: 2.5%;
+    height: 700px;
+  background: #475d62 url(payment_welcome.jpg);
+  background-size: cover;
+  position: relative;
+
+}
+.form-popup {
+    padding-top: 2%;
+    margin-left: 37%;
+    margin-right: 37%;
+    height: 500px;
+    background-color:#f1f7fc;
+    box-shadow: 6px 6px 4px rgba(0,0,0,0.9);
+}
+
+/* Add styles to the form container */
+.caption{
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-family: inherit;
+}
+.promo_money{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.promo,.money{
+    width: 45%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.money{
+    margin-left: 20px;
+}
+.promo{
+    margin-right: 10px;
+}
+.promo_button{
+    background-color: black;
+    color: white;
+    width: 70%;
+    height: 40px;
+    border: 0px;
+}
+
+.payment1{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.payment2{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.bkash,.rocket,.nexus,.cash{
+    float: left;
+    width: 35%;
+    height: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rocket{
+    width: 30%;
+    margin-left: 20%;
+    background-color: white;
+}
+.bkash{
+    margin-right: 10%;
+    background-color: white;
+}
+.nexus{
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    background-color: white;
+}
+.cash{
+    width: 31%;
+    margin-top: 20px;
+    margin-left: 20%;
+     margin-bottom: 10%;
+    background-color: white;
+}
+.image1,.image2,.image3,.image4{
+    width: 100px;
+    height: 50px;
+    background-size: cover;
+
+}
+.image3{
+    margin-top: 7%;
+}
+.image4{
+    width: 50px;
+    margin-left: 25%;
+}
+.report_accident{
+     height: 50px;
+    margin-top: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.report_button{
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 50px;
+    border: 0px;
+    font-size: 23px;
+
+}
+
+
+
+@media(min-width:1199px ){
+    .navbar{
+        padding-left: 100px;
+    }
+    .form-popup {
+        padding-top: 2%;
+        margin-left: 33%;
+        margin-right: 33%;
+        height: 500px;
+    }
+}
+@media (min-width:991px ) and (max-width: 1199px) {
+    .navbar{
+        padding-left: 100px;
+    }
+     .form-popup {
+        padding-top: 2%;
+        margin-left: 27%;
+        margin-right: 27%;
+        height: 500px;
+    }
+}
+@media (min-width:768px ) and (max-width: 990px) {
+    .navbar{
+        padding-left: 100px;
+    }
+     .form-popup {
+        padding-top: 2%;
+        margin-left: 25%;
+        margin-right: 25%;
+        height: 500px;
+    }
+}
+
+@media (min-width:543px ) and (max-width: 767px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .form-popup {
+        padding-top: 2%;
+        margin-left: 15%;
+        margin-right: 15%;
+        height: 500px;
+    }
+}
+@media (max-width: 542px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .form-popup {
+        padding-top: 4%;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 500px;
+    }
+}

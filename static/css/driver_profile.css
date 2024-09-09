@@ -1,0 +1,206 @@
+body{
+    background-color: black;
+}
+.navbar{
+    background-color: white;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+     z-index:99;
+}
+.navbar .container{
+    width: 80%;
+}
+.navbar-toggler:hover{
+    background-color:white;
+}
+
+.navbar-brand a span{
+    margin-top: 0px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Lucida Sans";
+}
+.navbar button{
+    float: right;
+}
+.navbar .btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: inherit;
+    color: black;
+    font-size: 20px;
+}
+.navbar .btn:hover{
+    background-color: black;
+    color: white;
+}
+.login .btn,.signup .btn{
+    margin-top: 8px;
+    background-color: black;
+    border-color: black;
+    margin-left: 15px;
+    color: white;
+    font-size: 15px;
+    font-weight:inherit;
+}
+
+
+img {
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+
+.driver_name{
+    background-color: black;
+    text-align: center;
+    font-size: 37px;
+    font-weight: inherit;;
+    color: white;
+}
+span {
+    margin-left: 5px;
+    color: white;
+}
+.rating{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: inherit;;
+}
+.button1{
+    width: 50%;
+    float: left;
+     text-align: center;
+    color: white;
+}
+.button2
+{
+     width: 50%;
+    float: right;
+    text-align: center;
+    color: white;
+}
+.btn{
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    border-color: white;
+    border-width: 1px;
+}
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+div.information{
+    margin-top: 60px;
+    height: 250px;
+}
+.driving_info{
+    padding-top: 20px;
+    width: 50%;
+    float: left;
+    color: black;
+    font-size: 15px;
+
+
+}
+.contact_info{
+    padding-top: 20px;
+     width: 50%;
+    float: right;
+    color: black;
+    font-size: 15px;
+}
+@media (min-width:1200px ){
+    .navbar{
+        padding-left: 100px;
+    }
+    .driver_image{
+        height: 300px;
+        padding-left: 40%;
+    }
+
+    .driving_info{
+        padding-left: 15%;
+
+    }
+    .contact_info{
+        padding-left: 15%;
+    }
+}
+@media (min-width:991px ) and (max-width: 1199px) {
+    .navbar{
+        padding-left: 100px;
+    }
+    .driver_image{
+        height: 300px;
+        padding-left: 35%;
+    }
+    .driving_info{
+        padding-left: 15%;
+
+    }
+    .contact_info{
+        padding-left: 15%;
+    }
+    div.information{
+    padding-top: 20px;
+    height: 300px;
+    }
+}
+@media (min-width:768px ) and (max-width: 990px) {
+    .navbar{
+        padding-left: 100px;
+    }
+    .driver_image{
+    height: 300px;
+    padding-left: 35%;
+    }
+    .driving_info{
+        padding-left: 15%;
+
+    }
+    .contact_info{
+        padding-left: 15%;
+    }
+}
+
+@media (min-width:543px ) and (max-width: 767px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .driver_image{
+    height: 300px;
+    padding-left: 25%;
+    }
+    .driving_info{
+        padding-left: 15%;
+
+    }
+    .contact_info{
+        padding-left: 15%;
+    }
+}
+@media (max-width: 542px) {
+    .navbar{
+        padding-left: 50px;
+    }
+    .driver_image{
+        height: 300px;
+        padding-left: 20%;
+    }
+    .driving_info{
+        padding-left: 15%;
+
+    }
+    .contact_info{
+        padding-left: 15%;
+    }
+}

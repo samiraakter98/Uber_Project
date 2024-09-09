@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uber|Map</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,700;1,700&family=Syne+Mono&family=Syne+Tactile&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+
+
+    <link rel="stylesheet" href="{%  static 'css/user_login.css' %}?{% now "U" %}">
+</head>
+<body>
+     <nav id="nav_bar" class="navbar navbar-inverse  navbar-expand-lg navbar-light">
+        <div class="container ">
+            <div class="navbar-brand">
+                <a class="navbar-brand" href="{% url 'welcome' %}"><span>Uber</span></a>
+            </div>
+        </div>
+         <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"  aria-expanded="false">
+                   <span class="navbar-toggler-icon" ></span>
+         </button>
+        <div class="collapse navbar-collapse float-right" id="navbarTogglerDemo01">
+            <div class="content float-right" >
+                <ul id="nav-list" class="navbar-nav mr-auto">
+                    <li ><a class="btn " href="{% url 'map1' %}" role="button" >Ride</a></li>
+                    <li><a class="btn " href="{% url 'user_p_t' %}" role="button">Trips</a></li>
+                    <li><a class="btn " href="#" role="button">About</a></li>
+                </ul>
+            </div>
+        </div>
+     </nav>
+    <div class="s01">
+        <form action="{% url 'map2' %}" method="POST">
+            {% csrf_token %}
+             <div class="inner-form">
+                <div class="input-field first-wrap">
+                     <label for="from"><input id="from" type="search" class="form-control" name="from" placeholder="From" value="" required></label><br>
+                  </div>
+                 <div class="input-field second-wrap">
+                    <label for="where"><input id="where" type="search" class="form-control" name="where" placeholder="Where to?" value="" required></label><br>
+                  </div>
+                  <div class="input-field third-wrap">
+                      <a href="{% url 'map2' %}" ><button id="submit_button" class="btn-search" type="submit">Search</button></a>
+
+                  </div>
+             </div>
+        </form>
+         </div>
+     <div id="map" style="margin-bottom: 40px;height: 600px;width: 80%">
+
+    </div>
+</body>
+<script src="{%  static 'js/user_login.js' %}?{% now "U" %}"></script>
+</html>
