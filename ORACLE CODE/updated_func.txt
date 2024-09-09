@@ -1,0 +1,68 @@
+#updated functions
+
+def make_endtime():
+    min = random.randint(20,100)
+    #min = 150
+    end_time = datetime.now() + timedelta(minutes=min)
+    end_time=str(end_time)
+    end_time,nano_sec =end_time.split('.')
+    print(end_time)
+    return end_time
+
+
+def for_trip_info(request):
+    start_time = request.GET.get('datetime')
+    start_time = str(start_time)
+    print(start_time)
+    request.session["start_time"] = start_time
+    print("i am in trip info")
+    return redirect('/')
+
+def rating(request):
+    rating_value = int(request.GET.get('rating'))
+    print(rating_value)
+    start = request.session.get('start_location')
+    end = request.session.get('end_location')
+    s_time = request.session.get('start_time')
+    del request.session['start_time']
+    e_time = make_endtime()
+    e_fare = request.session.get('expected_fare')
+    print(start)
+    print(end)
+    print(s_time)
+    print(e_time)
+    print(e_fare)
+    start_time=str(s_time)
+    end_time=str(e_time)
+    start_location=str(start)
+    end_location=str(end)
+    expected_fair=str(e_fare)
+    print(start_time)
+    print(end_time)
+    #start_time='2020-12-4 21:12:13'
+    cursor = connection.cursor()
+    sql = "SELECT MAX(TO_NUMBER(TRIP_ID)) FROM TRIP;"
+    cursor.execute(sql)
+    trip=cursor.fetchall()
+    trip_id =str(trip[0][0]+1)
+    sql="SELECT MAX(TO_NUMBER(PAYMENT_ID)) FROM PAYMENT;"
+    cursor.execute(sql)
+    payment = cursor.fetchall()
+    payment_id = str(payment[0][0])
+    sql = "SELECT REQUEST_ID,DRIVER_ID,USER_ID FROM REQUEST WHERE REQUEST_ID = (SELECT MAX(TO_NUMBER(REQUEST_ID)) FROM REQUEST);"
+    cursor.execute(sql)
+    other_info = cursor.fetchall()
+    request_id=str(other_info[0][0])
+    driver_id=str(other_info[0][1])
+    user_id=str(other_info[0][2])
+    print(trip_id+' '+start_time+' '+end_time+' '+expected_fair+' '+start_location+' '+end_location+' '+driver_id+' '+user_id+' '+request_id+' '+payment_id)
+    sql = "INSERT INTO TRIP VALUES (%s,TO_DATE(%s, 'YYYY-MM-DD hh24:mi:ss'),TO_DATE(%s, 'YYYY-MM-DD hh24:mi:ss'),%s,%s,%s,%s,%s,%s,%s);"
+    cursor.execute(sql,[trip_id,start_time,end_time,expected_fair,start_location,end_location,driver_id,user_id,request_id,payment_id])
+    connection.commit()
+    new_rating = cursor.callfunc('CALCULATE_RATING', int, [driver_id, rating_value])
+    print(new_rating)
+    sql = "UPDATE PERSON SET RATING = %s WHERE PERSON_ID = %s;"
+    cursor.execute(sql,[new_rating,driver_id])
+    connection.commit()
+    cursor.close()
+    return redirect('/')

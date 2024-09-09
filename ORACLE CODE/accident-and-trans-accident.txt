@@ -1,0 +1,99 @@
+def accident(request):
+    driver_id = 14
+    id = str(driver_id)
+    cursor = connection.cursor()
+    ##driver_id = numpy.random.random_integers(13, 18) Hard code for now##
+    sql="SELECT COUNT(*) FROM ACCIDENT WHERE DRIVER_ID="+id+";"
+    cursor.execute(sql)
+    accident_by_driver=cursor.fetchall()
+    sql = "SELECT T.BRAND, T.MODEL, T.TRANS_TYPE,T.TRANS_LICENSE, TO_DATE(A.OCCUR_TIME, 'YYYY-MM-DD hh24:mi:ss') FROM ACCIDENT A LEFT JOIN TRANSPORT T ON (A.TRANS_ID = T.TRANS_ID) WHERE A.TRANS_ID=(SELECT TRANS_ID FROM TRANSPORT WHERE DRIVER_ID=14);"
+    cursor.execute(sql)
+    driver_info100 = cursor.fetchall()
+    row1 = {'brand': driver_info100[0][0],
+           'model': driver_info100[0][1],
+           'type': driver_info100[0][2],
+           'trans_license': driver_info100[0][3],
+           }
+    information100 = []
+    time100=[]
+    information100.append(row1)
+    for x in range(accident_by_driver[0][0]):
+        t = driver_info100[x][4]
+        print(t)
+        t.strftime('%m/%d/%Y')
+        print(t)
+        tx=(t,)
+        time100.append(tx)
+    #sql = "SELECT T.BRAND, T.MODEL, T.TRANS_TYPE,T.TRANS_LICENSE FROM  DRIVER D JOIN TRANSPORT T ON D.DRIVER_ID = T.DRIVER_ID WHERE D.DRIVER_ID = " + id + ";"
+    ##sql = "SELECT D.IMAGE, D.DRIVING_LICENSE FROM UBERPROJECT.DRIVER D WHERE D.DRIVER_ID = "+id+";"
+    #cursor.execute(sql)
+    #driver_info = cursor.fetchall()
+    #sql = "SELECT A.OCCUR_TIME FROM ACCIDENT A JOIN DRIVER D ON D.DRIVER_ID=A.DRIVER_ID WHERE D.DRIVER_ID="+ id + ";"
+    #cursor.execute(sql)
+    #time = cursor.fetchall()
+    #print(len(time))
+    #row = { 'brand': driver_info[0][0],
+        #   'model': driver_info[0][1],
+       #    'type': driver_info[0][2],
+      #     'trans_license': driver_info[0][3],
+     #      }
+    #information = []
+    #information.append(row)
+    #print(information)
+   # print(time[0][0])
+    print(information100)
+    #print(information)
+    print(time100)
+    #print(time)
+    return render(request, 'accident.html',{'info':information100,'time':time100})
+def trans_accident(request):
+    driver_id = 14
+    id = str(driver_id)
+    cursor = connection.cursor()
+    sql = "SELECT COUNT(*) FROM ACCIDENT WHERE DRIVER_ID="+id+";"
+    cursor.execute(sql)
+    accident_by_transport = cursor.fetchall()
+    sql = "SELECT D.DRIVING_LICENSE, P.FIRST_NAME, P.LAST_NAME,PN.PHONE_NO,A.OCCUR_TIME FROM ACCIDENT A JOIN DRIVER D ON (A.DRIVER_ID = D.DRIVER_ID) JOIN PERSON P ON (P.PERSON_ID = D.DRIVER_ID) JOIN PERSON_NUMBER PN ON (D.DRIVER_ID = PN.PERSON_ID) WHERE D.DRIVER_ID = "+id+";"
+    cursor.execute(sql)
+    driver_info100 = cursor.fetchall()
+    print(driver_info100)
+    row1 = {'driving_license': driver_info100[0][0],
+           'first_name': driver_info100[0][1],
+           'last_name': driver_info100[0][2],
+           'phone': driver_info100[0][3],
+           }
+    information100 = []
+    information100.append(row1)
+    time100 = []
+    for x in range(accident_by_transport[0][0]):
+        t = driver_info100[x][4]
+        print(t)
+        t.strftime('%m/%d/%Y')
+        print(t)
+        tx = (t,)
+        time100.append(tx)
+    ##driver_id = numpy.random.random_integers(13, 18) Hard code for now##
+    #sql = "SELECT D.DRIVING_LICENSE, P.FIRST_NAME, P.LAST_NAME FROM PERSON P JOIN DRIVER D ON D.DRIVER_ID = P.PERSON_ID WHERE D.DRIVER_ID = " + id + ";"
+    ##sql = "SELECT D.IMAGE, D.DRIVING_LICENSE FROM UBERPROJECT.DRIVER D WHERE D.DRIVER_ID = "+id+";"
+    #cursor.execute(sql)
+    #driver_info = cursor.fetchall()
+    #sql = "SELECT PN.PHONE_NO FROM  DRIVER D JOIN PERSON_NUMBER PN ON D.DRIVER_ID = PN.PERSON_ID WHERE D.DRIVER_ID =" + id + ";"
+    #cursor.execute(sql)
+    #driver_info2 = cursor.fetchall()
+    #sql = "SELECT A.OCCUR_TIME FROM ACCIDENT A JOIN DRIVER D ON D.DRIVER_ID=A.DRIVER_ID WHERE D.DRIVER_ID=" + id + ";"
+    #cursor.execute(sql)
+    #time = cursor.fetchall()
+    #print(len(time))
+    #row = {'driving_license': driver_info[0][0],
+       #    'first_name': driver_info[0][1],
+      #     'last_name': driver_info[0][2],
+     #      'phone': driver_info2[0][0],
+    #       }
+    #information = []
+    #information.append(row)
+    #print(information)
+    print(information100)
+    #print(time)
+    print(time100)
+    #print(time[0][0])
+    return render(request, 'trans_accident.html', {'info': information100, 'time': time100})

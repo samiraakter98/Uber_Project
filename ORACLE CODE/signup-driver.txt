@@ -1,0 +1,59 @@
+def signup_driver(request):
+    if request.method == "POST":
+        fname = request.POST["fname"]
+        lname = request.POST["lname"]
+        gender = request.POST["gender"]
+        mail = request.POST["email"]
+        phone = request.POST["phone"]
+        dob = request.POST["dob"]
+        city = request.POST["city"]
+        zip = request.POST["zip"]
+        driver_li = request.POST["driver_li"]
+        nid = request.POST["nid"]
+        trans_type = request.POST["trans_type"]
+        brand = request.POST["brand"]
+        model = request.POST["model"]
+        trans_li = request.POST["trans_li"]
+        pas = request.POST["pass"]
+        cpas = request.POST["cpass"]
+        rating = str('0')
+        no_of_p_rated = str('0')
+        file = request.FILES['file']
+        file_name = str(file.name)
+        file_name = 'static/images/driver_image/'+file_name
+        print(file_name)
+        if pas != cpas:
+            msg = "password and confirm password doesnot match"
+            return render(request, 'signup.html', {"status": msg})
+        cursor = connection.cursor()
+        sql = "SELECT EMAIL FROM PERSON WHERE EMAIL LIKE %s"
+        cursor.execute(sql, [mail])
+        result = cursor.fetchall()
+        if result:
+            msg = "This EMAIL id is already registered"
+            return render(request, 'signup.html', {"status": msg})
+        else:
+            image_handle(file)
+            sql = "SELECT MAX(TO_NUMBER(PERSON_ID)) FROM PERSON"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            person_id = result[0][0] + 1
+            sql = "INSERT INTO PERSON (PERSON_ID,FIRST_NAME,LAST_NAME,ZIP_CODE,CITY,PASSWORD,GENDER,EMAIL,DATE_OF_BIRTH,RATING,NO_OF_PERSON_RATED) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,TO_DATE(%s, 'DD MON,YYYY'),%s,%s)"
+            cursor.execute(sql,[result[0][0] + 1, fname, lname, zip, city, make_pw_hash(pas), gender, mail, dob, rating,no_of_p_rated])
+            connection.commit()
+            sql = "INSERT INTO PERSON_NUMBER VALUES (%s,%s);"
+            cursor.execute(sql, [person_id, phone])
+            connection.commit()
+            sql = "INSERT INTO DRIVER VALUES (%s,%s,%s,%s);"
+            cursor.execute(sql,[person_id,file_name,nid,driver_li])
+            connection.commit()
+            sql = "SELECT MAX(TO_NUMBER(TRANS_ID)) FROM TRANSPORT"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            trans_id = result[0][0] + 1
+            sql = "INSERT INTO TRANSPORT VALUES (%s,%s,%s,%s,%s,%s);"
+            cursor.execute(sql, [trans_id,person_id, brand, model,trans_li,trans_type])
+            connection.commit()
+            cursor.close()
+            return redirect('/login')
+    return render(request,'signup_driver.html')

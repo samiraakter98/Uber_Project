@@ -1,0 +1,61 @@
+def confirmation(request):
+    logged_in_user = request.session.get('logged_in_user')
+    print(logged_in_user)
+
+    cursor = connection.cursor()
+    sql = "SELECT DRIVER_ID FROM DRIVER";
+
+    cursor.execute(sql)
+    r_id = cursor.fetchall()
+    ids = []
+    print(len(r_id))
+    for i in range(0,len(r_id)):
+        ids.append(int(r_id[i][0]))
+    print(ids)
+
+    ab = random.choice(ids)
+    ab = int(ab);
+    print(ab)
+    driver_id = ab
+    id = str(driver_id)
+    request.session["driver_id"] = id
+    cursor.close()
+
+    cursor = connection.cursor()
+    sql = "SELECT MAX(TO_NUMBER(REQUEST_ID)) FROM REQUEST;"
+    cursor.execute(sql)
+    r_id = cursor.fetchall()
+    request_id = r_id[0][0] + 1
+    sql = "SELECT TRANS_ID FROM TRANSPORT WHERE DRIVER_ID =" + id + ";"
+    cursor.execute(sql)
+    t_id = cursor.fetchall()
+    trans_id = t_id[0][0]
+    sql = "INSERT INTO REQUEST  VALUES(%s,%s,%s,%s)"
+    cursor.execute(sql, [request_id, trans_id, id, logged_in_user])
+    connection.commit()
+    age = cursor.callfunc('AGE', int, [id])
+    sql = "SELECT (P.FIRST_NAME || ' ' || P.LAST_NAME), PN.PHONE_NO, D.IMAGE,T.BRAND,T.MODEL,T.TRANS_LICENSE FROM PERSON P JOIN PERSON_NUMBER PN ON (P.PERSON_ID = PN.PERSON_ID) JOIN DRIVER D ON (P.PERSON_ID = D.DRIVER_ID) JOIN TRANSPORT T ON (T.DRIVER_ID = D.DRIVER_ID) WHERE P.PERSON_ID =" + id + " ;"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    sql = "SELECT FIRST_NAME FROM PERSON WHERE PERSON_ID =" + logged_in_user + ";"
+    cursor.execute(sql)
+    user = cursor.fetchall()
+    print(user[0][0])
+    cursor.close()
+    row = {'person_name': result[0][0],
+           'number': result[0][1],
+           'image': result[0][2],
+           'brand': result[0][3],
+           'model': result[0][4],
+           'trans_license': result[0][5],
+           'user_name': user[0][0],
+           'AGE': age,
+           }
+    driver_info = []
+    driver_info.append(row)
+    print(result)
+
+    cursor = connection.cursor();
+    check = cursor.callfunc('CHECK_PROMO', int, [logged_in_user]);
+    cursor.close()
+    return render(request, 'confirmation_page.html', {'info': driver_info, 'check': check})
